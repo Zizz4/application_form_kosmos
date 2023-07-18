@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+		<template id="report_expense_sheet_app_form_kosmos_inherit" inherit_id="report_expense_sheet">
+
+		</template>
+    </data>
+</odoo>
