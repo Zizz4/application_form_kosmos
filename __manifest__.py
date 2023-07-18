@@ -7,7 +7,10 @@
     'author': 'Muhamad Syahril Aziz',
     'license': 'LGPL-3',
     'depends': ['hr_expense'],
-    'data': [''],
+    'data': [
+        'views/app_form_kosmos.xml',
+        'report/application_form.xml',
+    ],
     'demo': [''],
     'installable': True,
     'auto_install': False

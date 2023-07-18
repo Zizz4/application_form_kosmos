@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-		<template id="report_expense_sheet_app_form_kosmos_inherit" inherit_id="report_expense_sheet">
+        <template id="report_expense_sheet_app_form_kosmos_inherit" inherit_id="hr_expense.report_expense_sheet">
+            <xpath expr="//div[@class='page']/div[2]/div/table/tr" position="after">
+                <tr>
+                    <td colspan="2">
+                        <t t-set="total_in_words"
+                           t-value="o.currency_id.with_context(lang='en_US').amount_to_text(o.total_amount)"/>
+                        <span t-attf-style="font-size: {{'16px' if len(total_in_words) &lt;= 50 else '14px'}};">
+                            <t t-esc="total_in_words"/>
+                        </span>
+                    </td>
+                </tr>
+            </xpath>
+            <xpath expr="//div[@class='page']/p" position="replace">
+                <!-- penerima pembayaran -->
+                <div class="row mt-5 mb32">
+                    <div class="col-2">
+                        <strong>Payee name:</strong>
+                        <p>M Rizki Aditya</p>
+                    </div>
+                    <div class="col-4">
+                        <strong>Payee bank name:</strong>
+                        <p>BCA</p>
+                    </div>
+                    <div class="col-4">
+                        <strong>payee bank account or card number:</strong>
+                        <p>7410756026</p>
+                    </div>
+                    <div class="col-3">
+                        <strong>Payee bank address:</strong>
+                        <p></p>
+                    </div>
+                </div>
 
-		</template>
+                <!-- kolom ttd-->
+                <table class="table table-sm mt-5">
+                    <thead>
+                        <th class="col-3">Responsible Person</th>
+                        <th class="col-3">Dept. Manager</th>
+                        <th class="col-3">Accountant</th>
+                        <th class="col-3">CEO</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- catatan -->
+                <p style="color:red; font-size:13px">
+                    Note: If you need to borrow money, please make a copy of this form in duplicate and return one copy
+                    to the borrower for reimbursement
+                </p>
+            </xpath>
+        </template>
     </data>
 </odoo>
