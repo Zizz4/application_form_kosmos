@@ -59,44 +59,44 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
+                            <td style="text-align:center;">
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <t t-if="o.submit_date">
-                                    <span t-field="o.submit_date"/>
+                                    <span t-field="o.submit_date" t-options='{"format": "dd MMMM yyyy"}'/>
                                 </t>
                             </td>
-                            <td>
+                            <td style="text-align:center;">
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <t t-if="o.approved_date">
-                                    <span t-field="o.approved_date"/>
+                                    <span t-field="o.approved_date" t-options='{"format": "dd MMMM yyyy"}'/>
                                 </t>
                             </td>
-                            <td>
+                            <td style="text-align:center;">
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <t t-if="o.accounting_date">
-                                    <span t-field="o.submit_date"/>
+                                    <span t-field="o.submit_date" t-options='{"format": "dd MMMM yyyy"}'/>
                                 </t>
                             </td>
-                            <td>
+                            <td style="text-align:center;">
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <br/>
                                 <t t-if="o.approved_date">
-                                    <span t-field="o.approved_date"/>
+                                    <span t-field="o.approved_date" t-options='{"format": "dd MMMM yyyy"}'/>
                                 </t>
                             </td>
                         </tr>
