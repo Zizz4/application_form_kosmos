@@ -2,17 +2,32 @@
 <odoo>
     <data>
         <template id="report_expense_sheet_app_form_kosmos_inherit" inherit_id="hr_expense.report_expense_sheet">
-            <xpath expr="//div[@class='page']/div[2]/div/table/tr" position="after">
-                <tr>
-                    <td colspan="2">
-                        <t t-set="total_in_words"
-                           t-value="o.currency_id.with_context(lang='en_US').amount_to_text(o.total_amount)"/>
-                        <span t-attf-style="font-size: {{'16px' if len(total_in_words) &lt;= 50 else '14px'}};">
-                            <t t-esc="total_in_words"/>
-                        </span>
-                    </td>
-                </tr>
+            <!--Total in Word-->
+            <xpath expr="//div[@class='page']/div[2]" position="replace">
+                <div class="row justify-content-end">
+                    <div class="col-5">
+                        <table class="table table-sm">
+                            <tr class="border-black">
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="o.total_amount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <t t-set="total_in_words"
+                       t-value="o.currency_id.with_context(lang='en_US').amount_to_text(o.total_amount)"/>
+                    <span t-attf-style="font-size: {{'16px' if len(total_in_words) &lt;= 50 else '14px'}};">
+                        <t t-esc="total_in_words"/>
+                    </span>
+                </div>
             </xpath>
+
             <xpath expr="//div[@class='page']/p" position="replace">
                 <!-- penerima pembayaran -->
                 <div class="row mt-5 mb32">
@@ -50,6 +65,9 @@
                                 <br/>
                                 <br/>
                                 <br/>
+                                <t t-if="o.submit_date">
+                                    <span t-field="o.submit_date"/>
+                                </t>
                             </td>
                             <td>
                                 <br/>
@@ -57,6 +75,9 @@
                                 <br/>
                                 <br/>
                                 <br/>
+                                <t t-if="o.approved_date">
+                                    <span t-field="o.approved_date"/>
+                                </t>
                             </td>
                             <td>
                                 <br/>
@@ -64,6 +85,9 @@
                                 <br/>
                                 <br/>
                                 <br/>
+                                <t t-if="o.accounting_date">
+                                    <span t-field="o.submit_date"/>
+                                </t>
                             </td>
                             <td>
                                 <br/>
@@ -71,6 +95,9 @@
                                 <br/>
                                 <br/>
                                 <br/>
+                                <t t-if="o.approved_date">
+                                    <span t-field="o.approved_date"/>
+                                </t>
                             </td>
                         </tr>
                     </tbody>
